@@ -3,6 +3,8 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import './layout.css';
 import Switch from 'react-switch';
 import storage from 'local-storage-fallback';
+import moon from '../../static/moon.png';
+import sun from '../../static/sun.png';
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -69,16 +71,32 @@ export default ({ children }) => {
           >
             About
           </Link>
-          <Switch onChange={changeTheme} checked={darkMode} />
+          <Link
+            to={`/blog/`}
+            className='header-link-item'
+            style={{color: darkMode? '#c1c6d0' : 'black'}}
+          >
+            Blog
+          </Link>
+          <Switch 
+            onChange={changeTheme} 
+            checked={darkMode} 
+            uncheckedIcon={
+                <img src={sun} height="100%" width="70%" />
+              }
+            checkedIcon={
+                <img src={moon} height="100%" width="70%" />
+            }
+            offColor={'#282c35'}
+            onColor={'#282c35'}
+            height={24}
+            width={53}
+            handleDiameter={20}
+            />
         </div>
       </div>
       <div className='content'>
         {children}
-        {/* {children}
-        {children}
-        {children}
-        {children}
-        {children} */}
       </div>
     </div>
   )
