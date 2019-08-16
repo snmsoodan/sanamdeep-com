@@ -1,0 +1,38 @@
+$lightGray : #f3f3f3;
+$bgColor: #202020;
+
+.dark {
+    background: #202020;
+    color: #c1c6d0;
+
+    .header {
+        background-color: rgb(32, 32, 32);
+
+        .header-logo-text {
+            color: #c1c6d0;
+        }
+
+        .header-link-item {
+            color: #c1c6d0
+        }
+
+    }
+
+    .scroll {
+        background-color: #131313;
+    }
+
+    .search {
+        &:hover {
+            background-color: darken($lightGray, 20%);
+        }
+    }
+
+    .blog {
+        &:hover {
+            background-color: lighten($bgColor, 10%);
+            border-radius: 9px;
+            color: white;
+        }
+    }
+}

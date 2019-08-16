@@ -3,8 +3,6 @@ import { graphql, Link } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 
-import "./blog.css";
-
 export default ({ data }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCount, setFilterCount] = useState(data.posts.totalCount);
@@ -46,7 +44,6 @@ export default ({ data }) => {
             />
           <div className="filter-count">{filterCount}</div>
         </div>
-        {/* <h4 style={{color: 'inherit'}}>{data.posts.totalCount} Posts</h4> */}
         {filteredPosts.map(({ node }) => (
           <div key={node.id} className='blog'>
               <Link

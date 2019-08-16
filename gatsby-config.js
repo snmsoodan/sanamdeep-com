@@ -10,6 +10,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    'gatsby-plugin-sass',
     'gatsby-plugin-dark-mode',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,

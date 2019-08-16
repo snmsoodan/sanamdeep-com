@@ -1,0 +1,36 @@
+$lightGray : #f3f3f3;
+
+.light {
+    background: white;
+    color: black;
+
+    .header {
+        background-color: rgba(255, 255, 255, 1);
+
+        .header-logo-text {
+            color: black;
+        }
+
+        .header-link-item {
+            color: black;
+        }
+    }
+
+    .scroll {
+        background-color: white;
+    }
+
+    .search {
+        &:hover {
+            background-color: $lightGray;
+        }
+    }
+
+    .blog {
+        &:hover {
+            background-color: $lightGray;
+            border-radius: 9px;
+            color: black;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import './layout.css';
+import '../styles/main.scss'
 import Switch from 'react-switch';
 import storage from 'local-storage-fallback';
 import moon from '../../static/moon.png';
@@ -31,12 +31,12 @@ export default ({ children }) => {
   }, []);
   
   useEffect(() => {
-    setDarkMode(storage.getItem('darkTheme')==='true')
+    setDarkMode(storage.getItem('dark')==='true')
   },[])
 
   const changeTheme = darkMode => {
     setDarkMode(darkMode);
-    storage.setItem('darkTheme', darkMode);
+    storage.setItem('dark', darkMode);
   }
   
   const navOnScroll = () => {
@@ -50,17 +50,15 @@ export default ({ children }) => {
   }
 
   return (
-    <div className={darkMode ? "container darkTheme" : "container"}>
+    <div className={darkMode ? "container dark" : "container light"}>
+      {console.log(darkMode)}
       <div 
         className={ scroll? 'header header-sticky scroll' : 'header header-sticky'}
-        style={{ 
-          backgroundColor: darkMode? scroll ? '#131313' : 'rgb(32, 32, 32)' : 'white'
-        }}
       >
         <div className="header-logo">
           <Link to={`/`} 
           >
-            <h3 className='header-logo-text' style={{color: darkMode? '#c1c6d0' : 'black'}}>
+            <h3 className='header-logo-text'>
               {data.site.siteMetadata.title}
             </h3>
           </Link>
@@ -71,7 +69,6 @@ export default ({ children }) => {
             className='kofi-top'
           >
             <img
-              style={{border:'0',height:'36px'}} 
               src={kofi}
               alt='Kofi' 
             />
@@ -98,14 +95,12 @@ export default ({ children }) => {
           <Link
             to={`/about/`}
             className='header-link-item'
-            style={{color: darkMode? '#c1c6d0' : 'black'}}
           >
             About
           </Link>
           <Link
             to={`/blog/`}
             className='header-link-item'
-            style={{color: darkMode? '#c1c6d0' : 'black'}}
           >
             Blog
           </Link>
