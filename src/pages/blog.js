@@ -48,7 +48,7 @@ export default ({ data }) => {
         </div>
         {/* <h4 style={{color: 'inherit'}}>{data.posts.totalCount} Posts</h4> */}
         {filteredPosts.map(({ node }) => (
-          <div key={node.id}>
+          <div key={node.id} className='blog'>
               <Link
               to={node.fields.slug}
               style={{textDecoration: 'none', color: 'inherit'}}
