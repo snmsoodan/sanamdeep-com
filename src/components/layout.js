@@ -5,6 +5,7 @@ import Switch from 'react-switch';
 import storage from 'local-storage-fallback';
 import moon from '../../static/moon.png';
 import sun from '../../static/sun.png';
+import kofi from '../../static/kofi.png';
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -56,13 +57,43 @@ export default ({ children }) => {
           backgroundColor: darkMode? scroll ? '#131313' : 'rgb(32, 32, 32)' : 'white'
         }}
       >
-        <Link to={`/`} 
-          className="header-logo"
-        >
-          <h3 className='header-logo-text' style={{color: darkMode? '#c1c6d0' : 'black'}}>
-            {data.site.siteMetadata.title}
-          </h3>
-        </Link>
+        <div className="header-logo">
+          <Link to={`/`} 
+          >
+            <h3 className='header-logo-text' style={{color: darkMode? '#c1c6d0' : 'black'}}>
+              {data.site.siteMetadata.title}
+            </h3>
+          </Link>
+          <a 
+            href='https://ko-fi.com/Z8Z211EV1' 
+            rel='noopener noreferrer'
+            target='_blank'
+            className='kofi-top'
+          >
+            <img
+              style={{border:'0',height:'36px'}} 
+              src={kofi}
+              alt='Kofi' 
+            />
+          </a>
+          <div class='switch-top'>
+            <Switch 
+              onChange={changeTheme} 
+              checked={darkMode} 
+              uncheckedIcon={
+                  <img src={sun} height="100%" width="70%" />
+                }
+              checkedIcon={
+                  <img src={moon} height="100%" width="70%" />
+              }
+              offColor={'#282c35'}
+              onColor={'#282c35'}
+              height={24}
+              width={53}
+              handleDiameter={20}
+            />
+          </div>
+        </div>
         <div className='header-links'>
           <Link
             to={`/about/`}
@@ -78,21 +109,35 @@ export default ({ children }) => {
           >
             Blog
           </Link>
-          <Switch 
-            onChange={changeTheme} 
-            checked={darkMode} 
-            uncheckedIcon={
-                <img src={sun} height="100%" width="70%" />
+          <a 
+            href='https://ko-fi.com/Z8Z211EV1' 
+            rel='noopener noreferrer'
+            target='_blank'
+            className='kofi'
+            >
+              <img
+                style={{border:'0',height:'36px'}} 
+                src={kofi}
+                alt='Kofi' 
+              />
+          </a>
+          <div class='switch'>
+            <Switch 
+              onChange={changeTheme} 
+              checked={darkMode} 
+              uncheckedIcon={
+                  <img src={sun} height="100%" width="70%" />
+                }
+              checkedIcon={
+                  <img src={moon} height="100%" width="70%" />
               }
-            checkedIcon={
-                <img src={moon} height="100%" width="70%" />
-            }
-            offColor={'#282c35'}
-            onColor={'#282c35'}
-            height={24}
-            width={53}
-            handleDiameter={20}
-            />
+              offColor={'#282c35'}
+              onColor={'#282c35'}
+              height={24}
+              width={53}
+              handleDiameter={20}
+              />
+          </div>
         </div>
       </div>
       <div className='content'>

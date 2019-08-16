@@ -56,12 +56,8 @@ export default ({ data }) => {
                 <h3
                 style={{marginBottom: `${rhythm(1 / 4)}`, color: 'inherit'}}
                 >
-                {node.frontmatter.title}{" "}
-                <span
-                    style={{color: 'inherit'}}
-                >
-                    — {node.frontmatter.date}
-                </span>
+                {node.frontmatter.title}
+                <p className='blog-date'>{node.frontmatter.date}</p>
                 </h3>
                 <p>{node.excerpt}</p>
             </Link>

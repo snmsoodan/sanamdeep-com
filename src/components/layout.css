@@ -30,8 +30,22 @@
 }
 
 .header-logo {
-    text-decoration : none;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo a{
+    text-decoration : none;
+}
+
+.kofi-top{
+    display: none;
+}
+
+.switch-top {
+    display: none;
 }
 
 .header-logo-text {
@@ -52,7 +66,12 @@
 .content {
     max-width : 1000px;
     margin: 7rem auto 1rem auto;
-    padding: 0 3rem;
+    padding: 0 1rem;
+}
+
+.kofi {
+    margin-top: -6px;
+    margin-right: 8px;
 }
 
 @media screen and (max-width: 480px) {
@@ -66,6 +85,18 @@
     }
     .container {
         margin: 0;
+    }
+
+    .kofi-top, .switch-top {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    .kofi-top {
+        margin-left: 30px;
+    }
+
+    .kofi, .switch {
+        display: none;
     }
 
 }
