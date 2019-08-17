@@ -50,15 +50,14 @@ export default ({ children }) => {
   }
 
   return (
-    <div className={darkMode ? "container dark" : "container light"}>
-      {console.log(darkMode)}
+    <div className={darkMode ? "container darkTheme" : "container lightTheme"}>
       <div 
-        className={ scroll? 'header header-sticky scroll' : 'header header-sticky'}
+        className={scroll ? "header header-sticky scroll" : "header header-sticky"}
       >
         <div className="header-logo">
           <Link to={`/`} 
           >
-            <h3 className='header-logo-text'>
+            <h3 className="header-logo-text">
               {data.site.siteMetadata.title}
             </h3>
           </Link>
@@ -73,15 +72,15 @@ export default ({ children }) => {
               alt='Kofi' 
             />
           </a>
-          <div class='switch-top'>
+          <div className="switch-top">
             <Switch 
               onChange={changeTheme} 
               checked={darkMode} 
               uncheckedIcon={
-                  <img src={sun} height="100%" width="70%" />
+                  <img src={sun} height="100%" width="70%" alt='sun'/>
                 }
               checkedIcon={
-                  <img src={moon} height="100%" width="70%" />
+                  <img src={moon} height="100%" width="70%" alt='moon'/>
               }
               offColor={'#282c35'}
               onColor={'#282c35'}
@@ -91,16 +90,16 @@ export default ({ children }) => {
             />
           </div>
         </div>
-        <div className='header-links'>
+        <div className="header-links">
           <Link
             to={`/about/`}
-            className='header-link-item'
+            className="header-link-item"
           >
             About
           </Link>
           <Link
             to={`/blog/`}
-            className='header-link-item'
+            className="header-link-item"
           >
             Blog
           </Link>
@@ -111,20 +110,19 @@ export default ({ children }) => {
             className='kofi'
             >
               <img
-                style={{border:'0',height:'36px'}} 
                 src={kofi}
                 alt='Kofi' 
               />
           </a>
-          <div class='switch'>
+          <div className='switch'>
             <Switch 
               onChange={changeTheme} 
               checked={darkMode} 
               uncheckedIcon={
-                  <img src={sun} height="100%" width="70%" />
+                  <img src={sun} height="100%" width="70%" alt="sun"/>
                 }
               checkedIcon={
-                  <img src={moon} height="100%" width="70%" />
+                  <img src={moon} height="100%" width="70%" alt="moon"/>
               }
               offColor={'#282c35'}
               onColor={'#282c35'}
@@ -135,7 +133,7 @@ export default ({ children }) => {
           </div>
         </div>
       </div>
-      <div className='content'>
+      <div className="content">
         {children}
       </div>
     </div>

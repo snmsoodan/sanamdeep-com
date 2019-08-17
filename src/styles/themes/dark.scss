@@ -1,25 +1,22 @@
-$lightGray : #f3f3f3;
-$bgColor: #202020;
-
-.dark {
-    background: #202020;
-    color: #c1c6d0;
-
+.darkTheme {
+    color: $darkTextColor;
+    background: $darkBgColor;
+    
     .header {
-        background-color: rgb(32, 32, 32);
-
+        background-color: #202020;
+        // background-color: $darkBgColor;
         .header-logo-text {
-            color: #c1c6d0;
+            color: $darkTextColor;
         }
 
         .header-link-item {
-            color: #c1c6d0
+            color: $darkTextColor
         }
 
     }
 
     .scroll {
-        background-color: #131313;
+        background-color: $darkScrolldarkBgColor;
     }
 
     .search {
@@ -29,10 +26,8 @@ $bgColor: #202020;
     }
 
     .blog {
-        &:hover {
-            background-color: lighten($bgColor, 10%);
-            border-radius: 9px;
-            color: white;
+        hr {
+            background-color: lighten($darkBgColor, 14%);
         }
     }
 }

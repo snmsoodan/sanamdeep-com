@@ -58,6 +58,7 @@ export default ({ data }) => {
                 </h3>
                 <p>{node.excerpt}</p>
             </Link>
+            <hr />
           </div>
         ))}
       </div>
