@@ -10,6 +10,12 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+          bucketName: 'www.sanamdeep.com'
+      },
+    },
     'gatsby-plugin-dark-mode',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
