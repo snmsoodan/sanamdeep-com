@@ -1,0 +1,27 @@
+.lightTheme {
+    color: $lightTextColor;
+    background: $lightBgColor;
+
+    .header {
+        background-color: #fff;
+        .header-logo-text {
+            color: $lightTextColor;
+        }
+
+        .header-link-item {
+            color: $lightTextColor;
+        }
+    }
+
+    .search {
+        &:hover {
+            background-color: $lightGray;
+        }
+    }
+
+    .blog {
+        hr {
+            background-color: darken($lightGray, 4%);
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.darkTheme {
+    color: $darkTextColor;
+    background: $darkBgColor;
+    
+    .header {
+        background-color: #202020;
+        // background-color: $darkBgColor;
+        .header-logo-text {
+            color: $darkTextColor;
+        }
+
+        .header-link-item {
+            color: $darkTextColor
+        }
+
+    }
+
+    .scroll {
+        background-color: $darkScrolldarkBgColor;
+    }
+
+    .search {
+        &:hover {
+            background-color: darken($lightGray, 20%);
+        }
+    }
+
+    .blog {
+        hr {
+            background-color: lighten($darkBgColor, 14%);
+        }
+    }
+}

@@ -1,2 +1,5 @@
-npm run build && npm run deploy
+rm -r ./public
+gatsby build
+aws s3 rm s3://www.sanamdeep.com --recursive
+aws s3 sync ./public s3://www.sanamdeep.com
 aws cloudfront create-invalidation --distribution-id E1DQJG1URGSL9M --paths "/*"

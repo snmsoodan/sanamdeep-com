@@ -1,0 +1,29 @@
+.search-container {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;
+
+    .search {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 0.4rem;
+        line-height: 1;
+        font-size: 1rem;
+        border-radius: 4px;
+    }
+
+    .filter-count {
+        margin-left: 1rem;
+        color: #5183f5;
+    }
+}
+
+.blog {
+
+    .blog-date {
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0.2rem 0 0.5rem 0;
+    }
+}
+

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import './layout.css';
+import '../styles/main.scss'
 import Switch from 'react-switch';
 import storage from 'local-storage-fallback';
+import moon from '../../static/moon.png';
+import sun from '../../static/sun.png';
+import kofi from '../../static/kofi.png';
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -28,12 +31,12 @@ export default ({ children }) => {
   }, []);
   
   useEffect(() => {
-    setDarkMode(storage.getItem('darkTheme')==='true')
+    setDarkMode(storage.getItem('dark')==='true')
   },[])
 
   const changeTheme = darkMode => {
     setDarkMode(darkMode);
-    storage.setItem('darkTheme', darkMode);
+    storage.setItem('dark', darkMode);
   }
   
   const navOnScroll = () => {
@@ -47,38 +50,91 @@ export default ({ children }) => {
   }
 
   return (
-    <div className={darkMode ? "container darkTheme" : "container"}>
+    <div className={darkMode ? "container darkTheme" : "container lightTheme"}>
       <div 
-        className={ scroll? 'header header-sticky scroll' : 'header header-sticky'}
-        style={{ 
-          backgroundColor: darkMode? scroll ? '#131313' : 'rgb(32, 32, 32)' : 'white'
-        }}
+        className={scroll ? "header header-sticky scroll" : "header header-sticky"}
       >
-        <Link to={`/`} 
-          className="header-logo"
-        >
-          <h3 className='header-logo-text' style={{color: darkMode? '#c1c6d0' : 'black'}}>
-            {data.site.siteMetadata.title}
-          </h3>
-        </Link>
-        <div className='header-links'>
+        <div className="header-logo">
+          <Link to={`/`} 
+          >
+            <h3 className="header-logo-text">
+              {data.site.siteMetadata.title}
+            </h3>
+          </Link>
+          <a 
+            href='https://ko-fi.com/Z8Z211EV1' 
+            rel='noopener noreferrer'
+            target='_blank'
+            className='kofi-top'
+          >
+            <img
+              src={kofi}
+              alt='Kofi' 
+            />
+          </a>
+          <div className="switch-top">
+            <Switch 
+              onChange={changeTheme} 
+              checked={darkMode} 
+              uncheckedIcon={
+                  <img src={sun} height="100%" width="70%" alt='sun'/>
+                }
+              checkedIcon={
+                  <img src={moon} height="100%" width="70%" alt='moon'/>
+              }
+              offColor={'#282c35'}
+              onColor={'#282c35'}
+              height={24}
+              width={53}
+              handleDiameter={20}
+            />
+          </div>
+        </div>
+        <div className="header-links">
           <Link
             to={`/about/`}
-            className='header-link-item'
-            style={{color: darkMode? '#c1c6d0' : 'black'}}
+            className="header-link-item"
           >
             About
           </Link>
-          <Switch onChange={changeTheme} checked={darkMode} />
+          <Link
+            to={`/blog/`}
+            className="header-link-item"
+          >
+            Blog
+          </Link>
+          <a 
+            href='https://ko-fi.com/Z8Z211EV1' 
+            rel='noopener noreferrer'
+            target='_blank'
+            className='kofi'
+            >
+              <img
+                src={kofi}
+                alt='Kofi' 
+              />
+          </a>
+          <div className='switch'>
+            <Switch 
+              onChange={changeTheme} 
+              checked={darkMode} 
+              uncheckedIcon={
+                  <img src={sun} height="100%" width="70%" alt="sun"/>
+                }
+              checkedIcon={
+                  <img src={moon} height="100%" width="70%" alt="moon"/>
+              }
+              offColor={'#282c35'}
+              onColor={'#282c35'}
+              height={24}
+              width={53}
+              handleDiameter={20}
+              />
+          </div>
         </div>
       </div>
-      <div className='content'>
+      <div className="content">
         {children}
-        {/* {children}
-        {children}
-        {children}
-        {children}
-        {children} */}
       </div>
     </div>
   )

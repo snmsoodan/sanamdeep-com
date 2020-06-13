@@ -16,6 +16,7 @@ module.exports = {
           bucketName: 'www.sanamdeep.com'
       },
     },
+    'gatsby-plugin-sass',
     'gatsby-plugin-dark-mode',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
